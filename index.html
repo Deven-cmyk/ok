@@ -1,1 +1,433 @@
-<h1>Hello World Wide Web!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deven Agnihotri | Creative Director & Systems Thinker</title>
+    <style>
+        /* IMAX / APPLE-INSPIRED PREMIUM DESIGN SYSTEM */
+        :root {
+            --text-main: #f5f5f7;
+            --text-muted: #86868b;
+            --accent: #ffffff;
+            --glass-bg: rgba(20, 20, 22, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        /* ANIMATED SUBTLE GRADIENT BACKGROUND */
+        body {
+            background: linear-gradient(120deg, #000000, #0a0a0f, #020205, #0a0f14);
+            background-size: 300% 300%;
+            animation: ambientDrift 20s ease-in-out infinite;
+            color: var(--text-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @keyframes ambientDrift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* SMOOTH FADE-IN ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px) scale(0.98);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            opacity: 0.4;
+            object-fit: cover;
+            filter: contrast(1.2) saturate(1.1);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: var(--accent);
+            margin-bottom: 10px;
+            text-shadow: 0px 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 2vw, 2rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* LAYOUTS */
+        .section {
+            padding: 150px 8%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 1000px) {
+            .grid-2 { grid-template-columns: 1fr; gap: 50px; }
+        }
+
+        /* TYPOGRAPHY */
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        p {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* MEDIA & CARDS */
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #000;
+            margin-top: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        }
+
+        .video-container iframe, .video-container video {
+            width: 100%;
+            height: 100%;
+            border: none;
+            object-fit: cover;
+        }
+
+        /* FROSTED GLASS CASE STUDY CARDS */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .glass-card h4 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .glass-card span {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        /* GALLERY SCROLL */
+        .gallery-scroll {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 40px 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .gallery-scroll img {
+            height: 70vh;
+            border-radius: 16px;
+            scroll-snap-align: center;
+            flex: 0 0 auto;
+            transition: filter 0.3s ease;
+        }
+        .gallery-scroll img:hover { filter: brightness(1.1); }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            background: #000;
+            padding: 150px 20px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        .contact-section h2 { font-size: 5rem; }
+        .contact-section p { font-size: 1.5rem; color: #fff; }
+        
+        .contact-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .contact-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover { color: var(--accent); }
+
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="TORONTO GBDA201 - 4K.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content fade-in">
+            <h1>DEVEN AGNIHOTRI</h1>
+            <p>Creative Director // Systems Thinker</p>
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <div class="grid-2">
+            <div class="image-container">
+                <img src="expanded.jpg" alt="Deven Agnihotri">
+            </div>
+            <div>
+                <h2>I don't just design. I engineer experiences.</h2>
+                <p>My background isn't typical. Before entering the creative space, I was a mechanic. I spent my time pulling apart complex machines, diagnosing inefficiencies, and rebuilding them to perform flawlessly.</p>
+                <p>I apply that exact same architecture to design, business strategy, and film. Whether pitching a high-level venture concept, directing marketing for the GBDA Society, or cutting a cinematic edit, I am reverse-engineering the problem. I build ideas that don't just look beautiful—they are strategically designed to work.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <h2>Brand Architecture & Venture Strategy.</h2>
+        <p>Building aesthetics backed by structural business strategy.</p>
+        
+        <div class="grid-2" style="margin-top: 60px;">
+            <div>
+                <h3>NAYA Water Rebrand • GBDA 202</h3>
+                <p>Featured at the GBDA Open House. I stripped away the early-2000s aesthetic to engineer a modular identity targeting Gen-Z luxury and extreme winter sports culture. A complete repositioning blending French elegance with Canadian purity.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/kNgC2JTR_A4?autoplay=0&rel=0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div>
+                <h3>Glitter & Thorn • BET 320</h3>
+                <p>A full-scale entrepreneurial venture concept, pitch, and branding exercise. From structural value propositions and investor pitch narratives to the sleek, high-contrast visual identity.</p>
+                <div class="image-container" style="margin-top: 40px;">
+                    <img src="FINAL LOGO (1) (1).jpg" alt="Glitter and Thorn">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <h2>Cinematic Engineering.</h2>
+        <p>Dictating emotion through pacing, framing, and rhythm.</p>
+
+        <div style="margin-top: 50px;">
+            <h3>The Architecture of a Story • GBDA 202</h3>
+            <p>Visual storytelling isn't just about capturing pretty frames; it's about tension and emotional release. This piece is a study in how audio and rhythm dictate the viewer's exact psychological state.</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/wZaYF-EqCRM?autoplay=0&rel=0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="grid-2" style="margin-top: 80px;">
+            <div>
+                <h3>Deconstructing Cinema • VCULT 101</h3>
+                <p>A deep-dive film critique where I didn't just write an essay—I visually dissected the subject matter. Shot, edited, and analyzed from the ground up.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/xsmTF7XlN7w?autoplay=0&rel=0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div>
+                <h3>Toronto Silent Film • GBDA 201</h3>
+                <p>Stripping away dialogue to capture the cold isolation and raw energy of downtown Toronto purely through observational cinematography.</p>
+                <div class="video-container">
+                    <video autoplay muted loop playsinline>
+                        <source src="AGNIHOTRI_PRJ2_FINALmp4.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <h2>Structural Typography.</h2>
+        <h3>Editorial Layout (GBDA 201) & What is Design Posters (GBDA 202)</h3>
+        <p>Grid systems, high-contrast imagery, and purposeful typography. From the "Venture into the Depths" magazine to exploring what defines timeless architecture and design.</p>
+        
+        <div class="gallery-scroll">
+            <img src="GBDA202-1.jpg" alt="Timeless Poster">
+            <img src="GBDA202-2.jpg" alt="Iconic Poster">
+            <img src="GBDA202-3.jpg" alt="Refined Poster">
+            <img src="GBDA202-4.jpg" alt="Eternal Poster">
+            <img src="GBDA202-5.jpg" alt="Visionary Poster">
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <h2>Systems & Service Design.</h2>
+        <p>Solving complex user problems through research, mapping, and structural UI design.</p>
+        
+        <div class="grid-3">
+            <div class="glass-card">
+                <span>GBDA 210</span>
+                <h4>Gas Buddy Redesign</h4>
+                <p>Comprehensive UX/UI overhaul improving navigation and user retention.</p>
+            </div>
+            <div class="glass-card">
+                <span>GBDA 210</span>
+                <h4>Rent Finder App</h4>
+                <p>Interface design and user flow mapping for a streamlined property rental experience.</p>
+            </div>
+            <div class="glass-card">
+                <span>GBDA 204</span>
+                <h4>Service Design: Uno</h4>
+                <p>Mapping and optimizing the end-to-end service journey and physical touchpoints.</p>
+            </div>
+            <div class="glass-card">
+                <span>GBDA 228</span>
+                <h4>Website Redesign</h4>
+                <p>Digital architecture restructuring to improve accessibility and visual hierarchy.</p>
+            </div>
+            <div class="glass-card">
+                <span>BET 320</span>
+                <h4>Laundry App Venture</h4>
+                <p>Entrepreneurial strategy, Lean Canvas modeling, and market disruption planning.</p>
+            </div>
+            <div class="glass-card">
+                <span>GBDA 203</span>
+                <h4>Auto Ethnography</h4>
+                <p>Deep qualitative research translating personal cultural observation into academic data.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <div class="grid-2">
+            <div>
+                <h2>Event Culture & Hype.</h2>
+                <h3>Marketing Director • GBDA Society</h3>
+                <p>Leading the creative strategy for live events. From shooting the "Mosaic" recap to editing the top 5 hype reels and emotional object studies (GBDA 201), my goal is to translate physical energy into a permanent digital footprint.</p>
+                <br>
+                <h3>Automotive Viscera</h3>
+                <p>BMW cinematic edits. Capturing the mechanical aggression and lines of automotive design.</p>
+            </div>
+            <div class="video-container" style="margin-top: 0; aspect-ratio: 9/16;">
+                <video autoplay muted loop playsinline style="object-fit: cover;">
+                    <source src="non swearing version mosaic reeel 2.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section fade-in">
+        <h2>Initiate Contact.</h2>
+        <p>Ready to build something that breaks the mold?</p>
+        <p style="color: var(--accent); margin-top: 10px; font-weight: bold;">Deven Agnihotri</p>
+        
+        <div class="contact-links">
+            <a href="mailto:your-email@uwaterloo.ca">Email Me</a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.12 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
